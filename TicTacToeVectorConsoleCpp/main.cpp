@@ -1,49 +1,54 @@
 #include <iostream>
 using namespace std;
 
-void mostrarQuadro();
-void turnoJogador();
+void ShowBoard();
+void PlayerTurn();
 bool gameover();
-char turno;
-bool empate = false;
+char turn;
+bool draw = false;
 char p1='1', p2='2', p3='3', p4='4', p5='5', p6='6', p7='7', p8='8', p9='9';
 
 int main()
 {
-    cout << "Jogo da velha\n";
-    cout << "Jogador 1 [X] --- Jogador 2 [O]\n";
-    turno = 'X';
+    cout << "Tic Tac Toe\n";
+    cout << "Player 1 [X] --- Player 2 [O]\n";
+    turn = 'X';
 
     while (!gameover())
     {
-        mostrarQuadro();
-        turnoJogador();
+        ShowBoard();
+        PlayerTurn();
         gameover();
     }
 
-    if (turno == 'O' && !empate)
+    if (turn == 'O' && !draw)
     {
-        mostrarQuadro();
-        cout << endl << endl << "Jogador 1 [X] Venceu! Game Over!\n";
+        ShowBoard();
+        cout << endl << endl << "Player 1 [X] Wins! Game Over!\n";
     }
-    else if (turno == 'X' && !empate)
+    else if (turn == 'X' && !draw)
     {
-        mostrarQuadro();
-        cout << endl << endl << "Jogador 2 [O] Venceu! Game Over!\n";
+        ShowBoard();
+        cout << endl << endl << "Player 2 [O] Wins! Game Over!\n";
     }
     else
     {
-        mostrarQuadro();
-        cout << endl << endl << "Empate! Game Over!\n";
+        ShowBoard();
+        cout << endl << endl << "Draw! Game Over!\n";
     }
     return EXIT_SUCCESS;
 }
 
-void mostrarQuadro()
+void ShowBoard()
 {
+    #ifdef _WIN32
+    system("cls");
+    #else
     system("clear");
-    cout << "Jogo da velha\n";
-    cout << "Jogador 1 [X] --- Jogador 2 [O]\n";
+    #endif
+
+    cout << "Tic Tac Toe\n";
+    cout << "Player 1 [X] --- Player 2 [O]\n";
     cout << "---------------------" << endl << endl;
     cout << "     |     |    " << endl;
     cout << "  " << p1 << "  |  " << p2 << "  |  " << p3 << endl;
@@ -56,17 +61,17 @@ void mostrarQuadro()
     cout << "     |     |    " << endl;
  }
 
-void turnoJogador()
+void PlayerTurn()
 {
     int choice;
 
-    if (turno == 'X')
+    if (turn == 'X')
     {
-        cout << "turno do jogador 1 [X]: ";
+        cout << "Player 1 turn [X]: ";
     }
     else
     {
-        cout << "turno do jogador 2 [O]: ";
+        cout << "Player 2 turn  [O]: ";
     }
 
     cin >> choice;
@@ -76,20 +81,20 @@ void turnoJogador()
         case 1:
             if (p1 == 'X' || p1 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p1 != 'X' && p1 != 'O')
             {
-                p1 = turno;
+                p1 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
 
@@ -97,20 +102,20 @@ void turnoJogador()
         case 2:
             if (p2 == 'X' || p2 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p2 != 'X' && p2 != 'O')
             {
-                p2 = turno;
+                p2 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
 
@@ -118,146 +123,146 @@ void turnoJogador()
         case 3:
             if (p3 == 'X' || p3 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p3 != 'X' && p3 != 'O')
             {
-                p3 = turno;
+                p3 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 4:
             if (p4 == 'X' || p4 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p4 != 'X' && p4 != 'O')
             {
-                p4 = turno;
+                p4 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 5:
             if (p5 == 'X' || p5 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p5 != 'X' && p5 != 'O')
             {
-                p5 = turno;
+                p5 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 6:
             if (p6 == 'X' || p6 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p6 != 'X' && p6 != 'O')
             {
-                p6 = turno;
+                p6 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 7:
             if (p7 == 'X' || p7 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p7 != 'X' && p7 != 'O')
             {
-                p7 = turno;
+                p7 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 8:
             if (p8 == 'X' || p8 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p8 != 'X' && p8 != 'O')
             {
-                p8 = turno;
+                p8 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         case 9:
             if (p9 == 'X' || p9 == 'O')
             {
-                cout<<"O número escolhido já está sendo utilizado, tente novamente.";
-                turnoJogador();
+                cout<<"The number you chose is already in use, please try again.";
+                PlayerTurn();
             }
             else if (p9 != 'X' && p9 != 'O')
             {
-                p9 = turno;
+                p9 = turn;
 
-                if (turno == 'X')
+                if (turn == 'X')
                 {
-                    turno = 'O';
+                    turn = 'O';
                 }
                 else
                 {
-                    turno = 'X';
+                    turn = 'X';
                 }
             }
         break;
         default:
-            cout << "Numero incorreto, tente novamente\n";
-            turnoJogador();
+            cout << "Incorrect number, try again\n";
+            PlayerTurn();
     }
 }
 
@@ -309,7 +314,7 @@ bool gameover()
         return false;
     }
 
-    empate = true;
+    draw = true;
     return true;
  }
 
