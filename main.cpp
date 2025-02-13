@@ -3,7 +3,7 @@ using namespace std;
 
 void ShowBoard();
 void PlayerTurn();
-bool gameover();
+bool GameOver();
 char turn;
 bool draw = false;
 char p1='1', p2='2', p3='3', p4='4', p5='5', p6='6', p7='7', p8='8', p9='9';
@@ -14,11 +14,11 @@ int main()
     cout << "Player 1 [X] --- Player 2 [O]\n";
     turn = 'X';
 
-    while (!gameover())
+    while (!GameOver())
     {
         ShowBoard();
         PlayerTurn();
-        gameover();
+        GameOver();
     }
 
     if (turn == 'O' && !draw)
@@ -266,7 +266,7 @@ void PlayerTurn()
     }
 }
 
-bool gameover()
+bool GameOver()
 {
     if (p1 == p4 && p4 == p7)
     {
