@@ -1,4 +1,4 @@
-# TicTacToeVectorConsoleCpp
+# TicTacToeConsoleCpp
 
 Load, run the game and enjoy :)
 
